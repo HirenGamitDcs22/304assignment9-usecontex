@@ -5,8 +5,8 @@ import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import About from './components/About'
-import Context from "./component/Context";
-import {ShowContext} from "./component/Context";
+import Context from './components/Context';
+import {ShowContext} from "./components/Context";
 
 function App() {
   const [showAddTask, setShowAddTask]=useState(false)
@@ -68,7 +68,7 @@ function App() {
       <div className='container'>
       <ShowContext.Provider value={showAddTask}>
           <Header 
-            onAdd={() => setShowAddTask(showAddTask)} 
+            onAdd={() => setShowAddTask(!showAddTask)} 
           />
         </ShowContext.Provider>
         <Routes>
@@ -80,7 +80,7 @@ function App() {
                 {tasks.length > 0 ? (
                   <Context.Provider value={tasks}>
                     <Tasks
-                      onDelete={delTask}
+                      onDelete={DeleteTask}
                       onToggle={toggleReminder}
                       tasks={tasks}
                     />
