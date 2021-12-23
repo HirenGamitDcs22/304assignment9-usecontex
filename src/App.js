@@ -69,6 +69,7 @@ function App() {
       <ShowContext.Provider value={showAddTask}>
           <Header 
             onAdd={() => setShowAddTask(!showAddTask)} 
+            showAdd={showAddTask}
           />
         </ShowContext.Provider>
         <Routes>
